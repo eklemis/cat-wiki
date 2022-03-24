@@ -2,16 +2,27 @@ import styles from "./top-section.module.css";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-export default function TopSection() {
+export default function TopSection(props) {
+	const { topSearch } = props;
 	const [showSugestions, setShowSugestions] = useState(false);
-	const [filterKeys, setFilterKeys] = useState([
-		"American Bobtail",
-		"American Curl",
-		"American Shorthair",
-		"American Wirehair",
-	]);
+	const [filterKeys, setFilterKeys] = useState(
+		topSearch.map((search) => search.name)
+	);
 	const sugestions = filterKeys.map((item, idx) => (
 		<li key={"sug" + idx}>{item}</li>
+	));
+	const topBreedEls = topSearch.map((search) => (
+		<li key={"list-" + search.id}>
+			<div className={styles["image-holder"]}>
+				<Image
+					src={search.image.url}
+					layout={"fill"}
+					objectFit="cover"
+					alt={search.name + "'s photo"}
+				></Image>
+			</div>
+			<p>{search.name}</p>
+		</li>
 	));
 	function activateSugestions() {
 		setShowSugestions(true);
@@ -49,7 +60,7 @@ export default function TopSection() {
 					</a>
 				</div>
 				<div className={styles["hor-wrapper"]}>
-					<ul className={styles.featured}></ul>
+					<ul className={styles.featured}>{topBreedEls}</ul>
 				</div>
 			</section>
 		</div>

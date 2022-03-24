@@ -3,10 +3,10 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import TopSection from "../components/top-section";
 import getAllBreeds from "../helpers/getbreeds";
+import { getAllSearch } from "../helpers/search";
 
 export default function Home(props) {
-	const breeds = props.breeds;
-	console.log(breeds);
+	const { breeds, searchings, topSearch } = props;
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -23,18 +23,25 @@ export default function Home(props) {
 					className={styles.logo}
 				/>
 			</header>
-			<TopSection />
+			<TopSection topSearch={topSearch} />
 			<main className={styles.main}></main>
 		</div>
 	);
 }
 
 export async function getStaticProps(context) {
-	const response = await getAllBreeds();
+	const allBreeds = await getAllBreeds();
+	const allSearch = await getAllSearch();
+	function getSearch(id) {
+		return allBreeds.filter((row) => row.id === id)[0];
+	}
+	const mergedSearch = allSearch.map((search) => getSearch(search.breedId));
 	return {
 		props: {
-			breeds: response,
+			breeds: allBreeds,
+			searchings: allSearch,
+			topSearch: mergedSearch,
 		},
-		revalidate: 120, // will be passed to the page component as props
+		revalidate: 60, // will be passed to the page component as props
 	};
 }
