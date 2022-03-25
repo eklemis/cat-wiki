@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import TopSection from "../components/top-section";
+import BottomSection from "../components/bottom-section";
+import Footer from "../components/footer";
 import getAllBreeds from "../helpers/getbreeds";
 import { getAllSearch } from "../helpers/search";
 
@@ -24,7 +26,8 @@ export default function Home(props) {
 				/>
 			</header>
 			<TopSection topSearch={topSearch} />
-			<main className={styles.main}></main>
+			<BottomSection />
+			<Footer />
 		</div>
 	);
 }
