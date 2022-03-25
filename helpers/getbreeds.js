@@ -25,7 +25,7 @@ export default async function getAllBreeds() {
 	data = changeImageUrl(
 		data,
 		"srex",
-		"https://i.ibb.co/2kqGhWf/amber-kipp-75715-CVEJh-I-unsplash.jpg"
+		"https://i.ibb.co/0rNdvDL/amber-kipp-75715-CVEJh-I-unsplash.jpg"
 	);
 	return data;
 }
