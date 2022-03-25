@@ -26,6 +26,12 @@
 	padding-right: 10vw;
 	overflow: visible;
 }
+.search-section div {
+	position: relative;
+	width: 395px;
+	height: 310px;
+	margin-top: 50px;
+}
 .search-section h2 {
 	max-width: 371px;
 	margin-top: 12px;
@@ -40,7 +46,6 @@
 .search-section input {
 	width: 395px;
 	padding: 24px 28px;
-	margin-top: 50px;
 	background: #ffffff;
 	border-radius: 59px;
 	font-family: "Montserrat";
@@ -56,11 +61,13 @@
 .search-section ul {
 	width: 395px;
 	padding: 20px 12px;
-	height: 220px;
+	min-height: 0px;
+	max-height: 220px;
 	overflow: scroll;
 	background: #ffffff;
 	border-radius: 24px;
 	position: absolute;
+	z-index: 1001;
 }
 .search-section ul li {
 	list-style: none;
@@ -84,11 +91,32 @@
 	height: 70%;
 	background: #e3e1dc;
 	border-radius: 0px 0px 42px 42px;
-	padding-top: 100px;
+	padding-top: 46px;
 	padding-left: 10vw;
 	padding-right: 10vw;
 }
 .discover-section h2 {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+	/* identical to box height */
+
+	color: #291507;
+	position: relative;
+}
+.discover-section h2::after {
+	content: "";
+	width: 60px;
+	height: 4px;
+	background: #4d270c;
+	border-radius: 77px;
+	position: absolute;
+	top: calc(100% + 8px);
+	left: 0;
+}
+.discover-section .title {
 	font-family: "Montserrat";
 	font-style: normal;
 	font-weight: 700;
@@ -99,6 +127,7 @@
 	max-width: 537px;
 	padding: 0;
 	margin: 0;
+	margin-top: 36px;
 }
 .discover-section .see-more {
 	font-family: "Montserrat";
@@ -113,6 +142,7 @@
 	color: rgba(41, 21, 7, 0.6);
 	position: relative;
 	margin-right: 30px;
+	margin-bottom: 5px;
 }
 .discover-section .see-more::after {
 	content: "";
@@ -140,20 +170,23 @@
 .image-holder img {
 	border-radius: 24px;
 }
-.featured li:first-child .image-holder {
+.featured li .image-holder {
 	position: relative;
 }
-.featured li:first-child .image-holder::before {
+.featured li .image-holder::before {
 	content: "";
 	position: absolute;
 	width: 47px;
 	height: 75%;
-	background: #dec68b;
+	background: transparent;
 	border-radius: 14px;
 	left: -15px;
 	top: 50%;
 	transform: translateY(-50%);
 	z-index: 0;
+}
+.featured li a:hover .image-holder::before {
+	background: #dec68b;
 }
 @media (min-width: 1024px) {
 	.search-section {

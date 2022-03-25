@@ -1,0 +1,90 @@
+.container {
+	min-height: 100vh;
+	padding: 26px 8vw;
+	padding-bottom: 0px;
+	overflow: hidden;
+}
+.main {
+	margin-top: 50px;
+}
+.info {
+	display: flex;
+}
+.main img {
+	border-radius: 24px;
+}
+.main-image {
+	position: relative;
+	width: 371px;
+	height: 371px;
+}
+.main-image::before {
+	content: "";
+	position: absolute;
+	width: 83px;
+	height: 305px;
+	background: #dec68b;
+	border-radius: 14px;
+	left: -8%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.detail-info {
+	margin-left: 115px;
+}
+.detail-info h1 {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 44px;
+	/* identical to box height */
+
+	color: #291507;
+}
+.detail-info p {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+
+	color: #291507;
+	max-width: 601px;
+	margin-top: 32px;
+}
+.detail-info p span {
+	font-weight: 700;
+}
+.photo-grid {
+	margin-top: 80px;
+	margin-bottom: 177px;
+}
+.photo-grid h2 {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 44px;
+	/* identical to box height */
+
+	color: #291507;
+}
+.photo-grid ul {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	list-style: none;
+	padding: 0;
+	row-gap: 3vw;
+	column-gap: 1.5vw;
+	margin-top: 40px;
+}
+.photo-grid ul li {
+	width: 278px;
+	height: 278px;
+	border-radius: 24px;
+	overflow: hidden;
+	position: relative;
+}

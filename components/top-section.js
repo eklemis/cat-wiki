@@ -3,27 +3,55 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function TopSection(props) {
-	const { topSearch } = props;
+	const { breeds, topSearch } = props;
+	const [filteredBreeds, setFilteredBreeds] = useState(topSearch);
+	const [keyword, setKeyword] = useState("");
+	const keywordChange = (ev) => {
+		const newKeyword = ev.target.value.trim();
+		setKeyword(newKeyword);
+		if (newKeyword !== "") {
+			setFilteredBreeds(
+				breeds.filter((breed) =>
+					breed.name.toLowerCase().includes(newKeyword.toLowerCase())
+				)
+			);
+		} else {
+			setFilteredBreeds(topSearch);
+		}
+	};
 	const [showSugestions, setShowSugestions] = useState(false);
-	const [filterKeys, setFilterKeys] = useState(
-		topSearch.map((search) => search.name)
-	);
-	const sugestions = filterKeys.map((item, idx) => (
-		<li key={"sug" + idx}>{item}</li>
+	function handleClick(name) {
+		setKeyword(name);
+	}
+
+	const sugestions = filteredBreeds.map((row, idx) => (
+		<a
+			href={"/breeds/" + row.id}
+			key={"sug" + idx}
+			onClick={handleClick.bind(null, row.name)}
+		>
+			<li>{row.name}</li>
+		</a>
 	));
-	const topBreedEls = topSearch.map((search) => (
-		<li key={"list-" + search.id}>
-			<div className={styles["image-holder"]}>
-				<Image
-					src={search.image.url}
-					layout={"fill"}
-					objectFit="cover"
-					alt={search.name + "'s photo"}
-				></Image>
-			</div>
-			<p>{search.name}</p>
-		</li>
-	));
+	const topBreedEls = topSearch.map((search, idx) => {
+		if (idx < 4)
+			return (
+				<li key={"list-" + search.id}>
+					<a href={"/breeds/" + search.id}>
+						<div className={styles["image-holder"]}>
+							<Image
+								src={search.image.url}
+								layout={"fill"}
+								objectFit="cover"
+								alt={search.name + "'s photo"}
+							></Image>
+						</div>
+						<p>{search.name}</p>
+					</a>
+				</li>
+			);
+		return "";
+	});
 	function activateSugestions() {
 		setShowSugestions(true);
 	}
@@ -41,20 +69,22 @@ export default function TopSection(props) {
 					className={styles.logo}
 				/>
 				<h2>Get to know more about your cat breed</h2>
-				<div styles="position:relative">
+				<div onMouseLeave={deactivateSugestions}>
 					<input
 						name="breedkey"
 						id="breedkey"
 						placeholder="Enter your breed"
 						onFocus={activateSugestions}
-						onBlur={deactivateSugestions}
+						onChange={keywordChange}
+						value={keyword}
 					/>
 					{showSugestions && <ul>{sugestions}</ul>}
 				</div>
 			</section>
 			<section className={styles["discover-section"]}>
+				<h2>Most Searched Breeds</h2>
 				<div className={styles["hor-wrapper"]}>
-					<h2>66+ Breeds For you to discover</h2>
+					<p className={styles.title}>66+ Breeds For you to discover</p>
 					<a href="#" className={styles["see-more"]}>
 						SEE MORE
 					</a>

@@ -1,0 +1,30 @@
+.holder {
+	display: flex;
+	margin-top: 22px;
+	align-items: center;
+}
+.holder span {
+	width: 150px;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+	/* identical to box height */
+
+	color: #000000;
+}
+.holder ul {
+	display: flex;
+	list-style: none;
+	column-gap: 8px;
+}
+.holder ul li {
+	width: 60px;
+	height: 12px;
+	background: #e0e0e0;
+	border-radius: 8px;
+}
+.holder ul li.include {
+	background: #544439;
+}

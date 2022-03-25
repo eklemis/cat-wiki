@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Header from "../components/header";
 import TopSection from "../components/top-section";
 import BottomSection from "../components/bottom-section";
 import Footer from "../components/footer";
@@ -16,16 +16,8 @@ export default function Home(props) {
 				<meta name="description" content="Cat breed wiki" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<header>
-				<Image
-					src="/CatwikiLogo.svg"
-					width={128}
-					height={43}
-					alt="logo"
-					className={styles.logo}
-				/>
-			</header>
-			<TopSection topSearch={topSearch} />
+			<Header />
+			<TopSection topSearch={topSearch} breeds={breeds} />
 			<BottomSection />
 			<Footer />
 		</div>
