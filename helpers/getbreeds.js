@@ -46,7 +46,7 @@ export async function getABreed(breedId) {
 	let breed;
 	if (data.length > 0) {
 		//1: Record as search data
-		const newSearch = await addSearch(breedId);
+		//const newSearch = await addSearch(breedId);
 		//2: Return value
 		breed = data[0].breeds[0];
 		const imageUrls = data.map((row) => row.url);
