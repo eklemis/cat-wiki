@@ -1,6 +1,6 @@
 import styles from "./top-section.module.css";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function TopSection(props) {
 	const { breeds, topSearch } = props;

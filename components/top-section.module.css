@@ -185,8 +185,18 @@
 	transform: translateY(-50%);
 	z-index: 0;
 }
+.image-holder {
+	transition: box-shadow 0.5s;
+}
+.image-holder::before {
+	transition: background-color 0.5s;
+}
+.featured li a:hover .image-holder {
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+		rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
 .featured li a:hover .image-holder::before {
-	background: #dec68b;
+	background-color: #dec68b;
 }
 @media (min-width: 1024px) {
 	.search-section {

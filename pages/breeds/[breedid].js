@@ -4,8 +4,25 @@ import styles from "./breeds.module.css";
 import getAllBreeds, { getABreed } from "../../helpers/getbreeds";
 import Image from "next/image";
 import Stats from "../../components/stats";
+import { useEffect } from "react";
 export default function BreedPage(props) {
 	const breed = props.breedData;
+	useEffect(() => {
+		if (breed !== 0) {
+			const search = {
+				breedid: breed.id,
+			};
+			fetch("/api/addsearch", {
+				method: "POST",
+				body: JSON.stringify(search),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			})
+				.then((response) => response.json())
+				.then((data) => console.log(data));
+		}
+	});
 	if (breed === 0) return <h1>404 - Page Not Found</h1>;
 	const images = breed.imageUrls.map((url, idx) => {
 		if (idx == 0) return "";

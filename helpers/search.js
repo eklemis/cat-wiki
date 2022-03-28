@@ -22,6 +22,7 @@ export async function getAllSearch() {
 				id: "desc",
 			},
 		},
+		take: 10,
 	});
 	const formatedResult = result.map((row) => ({
 		breedId: row.breedId,
