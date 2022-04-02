@@ -1,6 +1,7 @@
 import styles from "./top-section.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function TopSection(props) {
 	const { breeds, topSearch } = props;
@@ -85,9 +86,9 @@ export default function TopSection(props) {
 				<h2>Most Searched Breeds</h2>
 				<div className={styles["hor-wrapper"]}>
 					<p className={styles.title}>66+ Breeds For you to discover</p>
-					<a href="#" className={styles["see-more"]}>
-						SEE MORE
-					</a>
+					<Link href="/breeds/topten">
+						<a className={styles["see-more"]}>SEE MORE</a>
+					</Link>
 				</div>
 				<div className={styles["hor-wrapper"]}>
 					<ul className={styles.featured}>{topBreedEls}</ul>

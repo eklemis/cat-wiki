@@ -30,11 +30,12 @@ export default async function getAllBreeds() {
 	);
 	return data;
 }
-export async function getABreed(breedId) {
+export async function getABreed(breedId, limit = 9) {
 	const result = await fetch(
 		"https://api.thecatapi.com/v1/images/search?breed_id=" +
 			breedId +
-			"&limit=9",
+			"&limit=" +
+			limit,
 		{
 			headers: {
 				"Content-Type": "application/json",

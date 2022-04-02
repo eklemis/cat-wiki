@@ -4,6 +4,8 @@ import styles from "./breeds.module.css";
 import Image from "next/image";
 import Stats from "../../components/stats";
 import { addSearch } from "../../helpers/search";
+import { getABreed } from "../../helpers/getbreeds";
+
 export default function BreedPage(props) {
 	const breed = props.breedData;
 	if (breed === 0) return <h1>404 - Page Not Found</h1>;
@@ -17,6 +19,8 @@ export default function BreedPage(props) {
 					height={278}
 					alt={"Other photo " + (idx + 1)}
 					objectFit={"cover"}
+					blurDataURL="/images/blured.jpg"
+					placeholder="blur"
 				/>
 			</li>
 		);
@@ -34,6 +38,7 @@ export default function BreedPage(props) {
 								src={breed.imageUrls[0]}
 								alt={breed.name + "main photo"}
 								objectFit={"cover"}
+								priority
 							/>
 						</div>
 					</figure>
