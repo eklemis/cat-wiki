@@ -7,6 +7,7 @@ export default function TopSection(props) {
 	const { breeds, topSearch } = props;
 	const [filteredBreeds, setFilteredBreeds] = useState(topSearch);
 	const [keyword, setKeyword] = useState("");
+	const placeHolder = props.isMobile ? "Search" : "Enter your breed";
 	const keywordChange = (ev) => {
 		const newKeyword = ev.target.value.trim();
 		setKeyword(newKeyword);
@@ -62,19 +63,22 @@ export default function TopSection(props) {
 	return (
 		<div className={styles["main-wrapper"]}>
 			<section className={styles["search-section"]}>
-				<Image
-					src="/logoMedWhite.svg"
-					width={250}
-					height={87}
-					alt="Catwiki Logo"
-					className={styles.logo}
-				/>
+				{!props.isMobile && (
+					<Image
+						src="/logoMedWhite.svg"
+						width={250}
+						height={87}
+						alt="Catwiki Logo"
+						className={styles.logo}
+					/>
+				)}
+				{props.isMobile && <p className={styles.logo}>CatWiki</p>}
 				<h2>Get to know more about your cat breed</h2>
 				<div onMouseLeave={deactivateSugestions}>
 					<input
 						name="breedkey"
 						id="breedkey"
-						placeholder="Enter your breed"
+						placeholder={placeHolder}
 						onFocus={activateSugestions}
 						onChange={keywordChange}
 						value={keyword}
@@ -86,9 +90,11 @@ export default function TopSection(props) {
 				<h2>Most Searched Breeds</h2>
 				<div className={styles["hor-wrapper"]}>
 					<p className={styles.title}>66+ Breeds For you to discover</p>
-					<Link href="/breeds/topten">
-						<a className={styles["see-more"]}>SEE MORE</a>
-					</Link>
+					{!props.isMobile && (
+						<Link href="/breeds/topten">
+							<a className={styles["see-more"]}>SEE MORE</a>
+						</Link>
+					)}
 				</div>
 				<div className={styles["hor-wrapper"]}>
 					<ul className={styles.featured}>{topBreedEls}</ul>

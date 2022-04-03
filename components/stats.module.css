@@ -17,14 +17,24 @@
 .holder ul {
 	display: flex;
 	list-style: none;
-	column-gap: 8px;
+	column-gap: 5px;
 }
 .holder ul li {
-	width: 60px;
-	height: 12px;
+	width: 30px;
+	height: 9px;
 	background: #e0e0e0;
 	border-radius: 8px;
 }
 .holder ul li.include {
 	background: #544439;
+}
+@media (min-width: 1024px) {
+	.holder ul {
+		column-gap: 8px;
+	}
+	.holder ul li {
+		width: 60px;
+		height: 12px;
+		border-radius: 8px;
+	}
 }

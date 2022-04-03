@@ -4,7 +4,14 @@ import Image from "next/image";
 export default function Footer() {
 	return (
 		<footer className={styles.footer}>
-			<Image src="/logoMedWhite.svg" width={128} height={43} alt="" />
+			<div className={styles["image-holder"]}>
+				<Image
+					src="/logoMedWhite.svg"
+					layout={"fill"}
+					objectFit="cover"
+					alt=""
+				/>
+			</div>
 			<div className={styles.copy}>
 				<p>©</p>
 				<p>

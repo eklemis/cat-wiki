@@ -6,8 +6,16 @@ import BottomSection from "../components/bottom-section";
 import Footer from "../components/footer";
 import getAllBreeds from "../helpers/getbreeds";
 import { getAllSearch } from "../helpers/search";
+import { useState, useEffect } from "react";
 
 export default function Home(props) {
+	const [isMobile, setIsMobile] = useState();
+	useEffect(() => {
+		setIsMobile(window.innerWidth < 1024);
+		window.addEventListener("resize", () => {
+			setIsMobile(window.innerWidth < 1024);
+		});
+	}, []);
 	const { breeds, searchings, topSearch } = props;
 	return (
 		<div className={styles.container}>
@@ -17,7 +25,7 @@ export default function Home(props) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header />
-			<TopSection topSearch={topSearch} breeds={breeds} />
+			<TopSection topSearch={topSearch} breeds={breeds} isMobile={isMobile} />
 			<BottomSection />
 			<Footer />
 		</div>

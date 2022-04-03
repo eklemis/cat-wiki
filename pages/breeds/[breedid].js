@@ -37,6 +37,8 @@ export default function BreedPage(props) {
 								height={371}
 								src={breed.imageUrls[0]}
 								alt={breed.name + "main photo"}
+								blurDataURL="/images/blured.jpg"
+								placeholder="blur"
 								objectFit={"cover"}
 								priority
 							/>

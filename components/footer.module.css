@@ -3,25 +3,43 @@
 	background: #000000;
 	border-radius: 42px 42px 0px 0px;
 	width: 100%;
-	padding: 27px 10vw;
+	padding: 20px 10vw;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	flex-direction: column;
 }
 .footer p {
 	font-family: "Montserrat";
 	font-style: normal;
 	font-weight: 400;
-	font-size: 24px;
-	line-height: 29px;
+	font-size: 12px;
+	line-height: 14.63px;
 
 	color: #ffffff;
 }
 .copy {
 	display: flex;
+	flex-direction: row;
 	column-gap: 14px;
 }
 .user {
 	text-decoration: underline;
 	font-weight: 500;
+}
+.image-holder {
+	position: relative;
+	width: 50px;
+	height: 20px;
+}
+@media (min-width: 1024px) {
+	.footer {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: 27px 10vw;
+	}
+	.footer p {
+		font-size: 24px;
+		line-height: 29px;
+	}
 }
