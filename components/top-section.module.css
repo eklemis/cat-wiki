@@ -260,6 +260,7 @@
 		background-image: url("/images/HeroImagemd.png");
 		height: 45%;
 		max-height: 45%;
+		padding: 100px 150px;
 	}
 	.discover-section {
 		height: 55%;
@@ -273,7 +274,7 @@
 		line-height: 29px;
 	}
 	.search-section div {
-		margin-top: 50px;
+		padding-top: 50px;
 	}
 	.search-section input {
 		width: 395px;

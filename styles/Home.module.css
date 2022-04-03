@@ -18,10 +18,12 @@
 @media (min-width: 1024px) {
 	.container {
 		padding: 26px 2rem;
+		padding-bottom: 0px;
 	}
 }
 @media (min-width: 1280px) {
 	.container {
 		padding: 26px 5rem;
+		padding-bottom: 0px;
 	}
 }

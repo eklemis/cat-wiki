@@ -28,7 +28,7 @@
 }
 .image-holder {
 	position: relative;
-	width: 50px;
+	width: 55px;
 	height: 20px;
 }
 @media (min-width: 1024px) {
@@ -36,10 +36,17 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		padding: 27px 10vw;
+		padding: 27px 8vw;
+		margin-bottom: 0px;
 	}
 	.footer p {
 		font-size: 24px;
 		line-height: 29px;
+	}
+	.image-holder {
+		position: relative;
+		width: 100px;
+		height: 33px;
+		margin-left: 20px;
 	}
 }
