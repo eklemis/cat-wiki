@@ -7,6 +7,7 @@ export default function TopSection(props) {
 	const { breeds, topSearch } = props;
 	const [filteredBreeds, setFilteredBreeds] = useState(topSearch);
 	const [keyword, setKeyword] = useState("");
+	const [searchStyle, setSearchStyle] = useState("");
 	const placeHolder = props.isMobile ? "Search" : "Enter your breed";
 	const keywordChange = (ev) => {
 		const newKeyword = ev.target.value.trim();
@@ -55,10 +56,19 @@ export default function TopSection(props) {
 		return "";
 	});
 	function activateSugestions() {
+		if (props.isMobile) {
+			setSearchStyle(styles["mob-active"]);
+		}
 		setShowSugestions(true);
 	}
 	function deactivateSugestions() {
 		setShowSugestions(false);
+	}
+	function neutralizeSearch() {
+		if (props.isMobile) {
+			setSearchStyle("");
+			deactivateSugestions();
+		}
 	}
 	return (
 		<div className={styles["main-wrapper"]}>
@@ -74,7 +84,12 @@ export default function TopSection(props) {
 				)}
 				{props.isMobile && <p className={styles.logo}>CatWiki</p>}
 				<h2>Get to know more about your cat breed</h2>
-				<div onMouseLeave={deactivateSugestions}>
+				<div onMouseLeave={deactivateSugestions} className={searchStyle}>
+					{props.isMobile && (
+						<span className={searchStyle} onClick={neutralizeSearch}>
+							x
+						</span>
+					)}
 					<input
 						name="breedkey"
 						id="breedkey"
@@ -82,6 +97,7 @@ export default function TopSection(props) {
 						onFocus={activateSugestions}
 						onChange={keywordChange}
 						value={keyword}
+						className={searchStyle}
 					/>
 					{showSugestions && <ul>{sugestions}</ul>}
 				</div>

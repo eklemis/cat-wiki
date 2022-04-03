@@ -1,6 +1,6 @@
 .container {
 	min-height: 100vh;
-	padding: 26px calc(calc(100vw - 400px) / 2);
+	padding: 26px calc(calc(100vw - 360px) / 2);
 	padding-bottom: 0px;
 	overflow: hidden;
 }
