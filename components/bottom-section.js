@@ -10,7 +10,10 @@ export default function BottomSection() {
 					Having a cat around you can actually trigger the release of calming
 					chemicals in your body which lower your stress and anxiety leves
 				</p>
-				<a href="#" className={styles["read-more"]}>
+				<a
+					href="https://www.helpguide.org/articles/healthy-living/joys-of-owning-a-cat.htm#:~:text=The%20health%20benefits%20of%20cats&text=They%20can%3A,and%20lower%20your%20blood%20pressure."
+					className={styles["read-more"]}
+				>
 					READ MORE
 				</a>
 			</section>
